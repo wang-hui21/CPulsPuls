@@ -342,8 +342,6 @@ Output：
 
 
 
-### 11.About The Writer
 
-个人公众号：
 
-![](./img/wechat.jpg)
+
