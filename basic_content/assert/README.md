@@ -52,3 +52,4 @@ assert: assert.c:13: main: Assertion 'x==7' failed.
 ```
 
 > 样例代码：[ignore_assert.c](./ignore_assert.c)
+#### 感觉类似于Debug，在加入的断点处判断逻辑是否产生错误。不同之处是在于Debug在运行过程中起作用，断言反之。

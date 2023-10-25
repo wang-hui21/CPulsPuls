@@ -5,7 +5,7 @@ struct stuff {
   unsigned int field1 : 30;
   unsigned int : 2;
   unsigned int field2 : 4;
-  unsigned int : 0;
+//  unsigned int : 0;     #此处将field2没有沾满的位填充，使下一个字段移至下一个单元存放
   unsigned int field3 : 3;
 };
 int main() {

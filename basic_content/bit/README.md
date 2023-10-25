@@ -1,8 +1,3 @@
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
 
 ## Bit field 是什么？
 
@@ -16,14 +11,12 @@
 
 位域通常使用结构体声明， 该结构声明为每个位域成员设置名称，并决定其宽度：
 
-```
+```c++
 struct bit_field_name
 {
 	type member_name : width;
 };
 ```
-
-
 
 | Elements       | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
@@ -34,7 +27,7 @@ struct bit_field_name
 
 例如声明如下一个位域:
 
-```
+```c++
 struct _PRCODE
 {
 	unsigned int code1: 2;
@@ -46,7 +39,7 @@ struct _PRCODE prcode;
 
 该定义使 `prcode`包含 2 个 2 Bits 位域和 1 个 8 Bits 位域，我们可以使用结构体的成员运算符对其进行赋值
 
-```
+```c++
 prcode.code1 = 0;
 prcode.code2 = 3;
 procde.code3 = 102;
@@ -61,7 +54,7 @@ procde.code3 = 102;
 
 例如以下位域：
 
-```
+```c++
 struct box 
 {
 	unsigned int a: 1;
@@ -77,7 +70,7 @@ struct box
 一个位域成员不允许跨越两个 unsigned int 的边界，如果成员声明的总位数超过了一个 unsigned int 的大小， 那么编辑器会自动移位位域成员，使其按照 unsigned int 的边界对齐。
 例如：
 
-```
+```c++
 struct stuff 
 {
 	unsigned int field1: 30;
@@ -93,7 +86,7 @@ struct stuff
 这个空洞可以用之前提到的未命名的位域成员填充，我们也可以使用一个宽度为 0 的未命名位域成员令下一位域成员与下一个整数对齐。
 例如:
 
-```
+```c++
 struct stuff 
 {
 	unsigned int field1: 30;
@@ -116,13 +109,13 @@ struct stuff
 
 位域的初始化与普通结构体初始化的方法相同，这里列举两种，如下:
 
-```
+```c++
 struct stuff s1= {20,8,6};
 ```
 
 或者直接为位域成员赋值
 
-```
+```c++
 struct stuff s1;
 s1.field1 = 20;
 s1.field2 = 8;
@@ -133,7 +126,7 @@ s1.field3 = 4;
 
 声明一个 大小为 32 Bits 的位域
 
-```
+```c++
 struct box {
 	unsigned int ready:     2;
 	unsigned int error:     2;
@@ -144,7 +137,7 @@ struct box {
 
 #### 利用重映射将位域归零
 
-```
+```c++
 int* p = (int *) &b1;  // 将 "位域结构体的地址" 映射至 "整形（int*) 的地址" 
 *p = 0;                // 清除 s1，将各成员归零
 ```
@@ -159,7 +152,7 @@ int* p = (int *) &b1;  // 将 "位域结构体的地址" 映射至 "整形（int
 
 我们可以声明以下联合:
 
-```
+```c++
 union u_box {
   struct box st_box;     
   unsigned int ui_box;
@@ -171,7 +164,7 @@ union u_box {
 x86 系统中 unsigned int 和 box 都为 32 Bits, 通过该联合使 st_box 和 ui_box 共享一块内存。具体位域中哪一位与 unsigned int 哪一位相对应，取决于编译器和硬件。
 利用联合将位域归零，代码如下：
 
-```
+```c++
 union u_box u;
 u.ui_box = 0;
 ```
