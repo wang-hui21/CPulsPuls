@@ -1,15 +1,9 @@
 # decltype那些事
 
-## 关于作者：
-
-个人公众号：
-
-![](../img/wechat.jpg)
-
 ## 1.基本使用
 decltype的语法是:
 
-```
+```c++
 decltype (expression)
 ```
 
@@ -18,7 +12,7 @@ decltype (expression)
 
 ### 1.1 推导出表达式类型
 
-```
+```c++
 int i = 4;
 decltype(i) a; //推导结果为int。a的类型为int。
 ```

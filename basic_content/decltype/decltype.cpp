@@ -11,7 +11,7 @@ auto multiply(T x, T y) -> decltype(x * y) {
 }
 
 int main() {
-  int nums[] = {1, 2, 3, 4};
+  float nums[] = {1.0, 2.0, 3, 4};
   vector<int> vec(nums, nums + 4);
   vector<int>::iterator it;
 
@@ -39,9 +39,9 @@ int main() {
     double b;
   } anon_s;
 
-  decltype(anon_s) as{1, 2.0}; // 定义了一个上面匿名的结构体
+  decltype(anon_s) asq{1, 2.0}; // 定义了一个上面匿名的结构体
 
-  cout << multiply(11, 2) << ":" << as.b << endl;
+  cout << multiply(11.1f, 2.0f) << ":" << asq.b << endl;
 
   return 0;
 }
