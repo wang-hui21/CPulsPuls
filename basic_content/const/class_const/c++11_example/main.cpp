@@ -1,4 +1,5 @@
 #include "apple.h"
+#include "apple.cpp"
 #include <iostream>
 using namespace std;
 int main() {

@@ -1,5 +1,6 @@
 #pragma once
-
+#include <iostream>
+using namespace std;
 class Apple {
 public:
   Apple(int i);
