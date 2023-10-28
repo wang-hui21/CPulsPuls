@@ -119,7 +119,6 @@ decltype(*ptr)var10 = i;//int& *操作返回左值
 
 decltype("hello")var11 = "hello"; //const char(&)[9]  字符串字面常量为左值，且为const左值。
 
-
 //规则四：以上都不是，则推导为本类型
 
 decltype(1) var12;//const int
